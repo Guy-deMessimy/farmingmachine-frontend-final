@@ -7,7 +7,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: ['prettier', 'react', 'react-hooks', '@typescript-eslint'],
+  plugins: ['prettier', 'react', 'react-hooks', '@typescript-eslint', 'baseui'],
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -30,5 +30,8 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react-hooks/rules-of-hooks': 'error',
     'react-hooks/exhaustive-deps': 'warn',
+    'baseui/deprecated-theme-api': 'warn',
+    'baseui/deprecated-component-api': 'warn',
+    'baseui/no-deep-imports': 'warn',
   },
 };
