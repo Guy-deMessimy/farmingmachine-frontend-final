@@ -44,3 +44,64 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Technical project structure
+
+Prisma ORM est le pont entre la bdd et les services du backend
+
+```sh
+npx prisma init
+```
+
+Le shema Bdd Prisma est definit dans le dossier Prisma
+
+```sh
+schema.prisma
+```
+
+Mapper le modèle Prisma définit dans la bdd (execute la 1ere migration)
+
+```sh
+npx prisma migrate dev --name init
+```
+
+en cas d'ajout et/ou modifications du shema le script ci-dessous est à jouer
+
+```sh
+npm run migrate
+```
+
+Prisma client permet a Nest JS l'accès et la modification des données en bdd
+
+```sh
+prisma client
+```
+
+Data access layer : couche mutation de la bdd
+
+```sh
+couche repository
+```
+
+Data access layer : couche logique métier
+
+```sh
+couche service
+```
+
+Data access layer : couche accès client à l'api (equivalent du controller en REST api)
+
+```sh
+couche resolver
+```
+
+Data access layer : objet GraphQl pour typer la reponse server
+```sh
+resolver model
+```
+
+Data access layer : definir le type des données entrantes
+
+```sh
+dto and entity
+```
