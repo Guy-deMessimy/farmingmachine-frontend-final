@@ -3,9 +3,9 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import RootLayout from './pages/RootLayout';
 import ErrorPage from './pages/Error';
 import WelcomePage from './pages/Welcome';
-import ServiceLayout from './pages/ServiceLayout';
-import BlogLayout from './pages/BlogLayout';
-import BlogPostsPage from './pages/BlogPosts';
+import ServiceLayout from './pages/Service/ServiceLayout';
+import BlogLayout from './pages/Post/BlogLayout';
+import BlogPostsPage from './pages/Post/BlogPosts';
 
 const router = createBrowserRouter([
   {
