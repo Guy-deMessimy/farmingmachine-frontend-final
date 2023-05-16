@@ -3,9 +3,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import RootLayout from './pages/RootLayout';
 import ErrorPage from './pages/Error';
 import WelcomePage from './pages/Welcome';
-import ServiceLayout from './pages/Service/ServiceLayout';
 import BlogLayout from './pages/Post/BlogLayout';
 import BlogPostsPage from './pages/Post/BlogPosts';
+import CategoryLayout from './pages/Category/CategoryLayout';
+import CategoriesPage from './pages/Category/Categories';
 
 const router = createBrowserRouter([
   {
@@ -15,8 +16,14 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <WelcomePage /> },
       {
-        path: '/service',
-        element: <ServiceLayout />,
+        path: '/category',
+        element: <CategoryLayout />,
+        children: [
+          {
+            index: true,
+            element: <CategoriesPage />,
+          },
+        ],
       },
       {
         path: '/blog',

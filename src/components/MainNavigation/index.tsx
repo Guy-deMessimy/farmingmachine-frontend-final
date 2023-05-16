@@ -18,7 +18,7 @@ const MainNavigation = () => {
       </StyledNavigationList>
       <StyledNavigationList $align={ALIGN.right}>
         <StyledNavigationItem>
-          <Styled.NavLink to="/service">Service</Styled.NavLink>
+          <Styled.NavLink to="/category">Services</Styled.NavLink>
         </StyledNavigationItem>
         <StyledNavigationItem>
           <Styled.NavLink to="/rent">Rent</Styled.NavLink>
