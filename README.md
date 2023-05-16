@@ -47,61 +47,32 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ## Technical project structure
 
-Prisma ORM est le pont entre la bdd et les services du backend
+
+Pages
 
 ```sh
-npx prisma init
+couche pages
 ```
 
-Le shema Bdd Prisma est definit dans le dossier Prisma
+Components
 
 ```sh
-schema.prisma
+couche components
 ```
 
-Mapper le modèle Prisma définit dans la bdd (execute la 1ere migration)
+GraphQl
 
 ```sh
-npx prisma migrate dev --name init
+couche GraphQl
+```
+Models
+
+```sh
+couche models
 ```
 
-en cas d'ajout et/ou modifications du shema le script ci-dessous est à jouer
+Common
 
 ```sh
-npm run migrate
-```
-
-Prisma client permet a Nest JS l'accès et la modification des données en bdd
-
-```sh
-prisma client
-```
-
-Data access layer : couche mutation de la bdd
-
-```sh
-couche repository
-```
-
-Data access layer : couche logique métier
-
-```sh
-couche service
-```
-
-Data access layer : couche accès client à l'api (equivalent du controller en REST api)
-
-```sh
-couche resolver
-```
-
-Data access layer : objet GraphQl pour typer la reponse server
-```sh
-resolver model
-```
-
-Data access layer : definir le type des données entrantes
-
-```sh
-dto and entity
+couche common
 ```
