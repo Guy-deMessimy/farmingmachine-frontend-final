@@ -7,6 +7,8 @@ import BlogLayout from './pages/Post/BlogLayout';
 import BlogPostsPage from './pages/Post/BlogPosts';
 import CategoryLayout from './pages/Category/CategoryLayout';
 import CategoriesPage from './pages/Category/Categories';
+import ConfigurationLayout from './pages/Configuration/ConfigurationLayout';
+import ConfigurationPage from './pages/Configuration/Configuration';
 
 const router = createBrowserRouter([
   {
@@ -45,6 +47,16 @@ const router = createBrowserRouter([
       },
       {
         path: '/share',
+      },
+      {
+        path: '/configuration',
+        element: <ConfigurationLayout />,
+        children: [
+          {
+            index: true,
+            element: <ConfigurationPage />,
+          },
+        ],
       },
     ],
   },

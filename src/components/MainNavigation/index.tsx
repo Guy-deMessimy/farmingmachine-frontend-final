@@ -29,6 +29,9 @@ const MainNavigation = () => {
         <StyledNavigationItem>
           <Styled.NavLink to="/blog">Blog</Styled.NavLink>
         </StyledNavigationItem>
+        <StyledNavigationItem>
+          <Styled.NavLink to="/configuration">Configuration</Styled.NavLink>
+        </StyledNavigationItem>
       </StyledNavigationList>
       <StyledNavigationList $align={ALIGN.right}>
         <StyledNavigationItem>
