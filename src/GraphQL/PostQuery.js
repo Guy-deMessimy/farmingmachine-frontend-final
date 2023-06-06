@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 export const GET_POSTS = gql`
-  query getPosts {
+  query GetPosts {
     getPosts {
       id
       authorId
@@ -11,6 +11,15 @@ export const GET_POSTS = gql`
       title
       updatedAt
       createdAt
+    }
+  }
+`;
+
+export const CREATE_POST = gql`
+  mutation CreatePost($content: String!, $title: String!, $authorId: Int!) {
+    createPost(content: $content, title: $title, authorId: $authorId) {
+      content
+      title
     }
   }
 `;
