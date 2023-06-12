@@ -26,11 +26,12 @@ const CategorySettings = () => {
     setIsUploading(true);
     timeoutId.current = setTimeout(reset, 4000);
     const file: File = acceptedFiles[0];
+    const size: number = file.size;
     if (rejectedFiles.length > 0) {
       setErrorMessage(true);
       return;
     }
-    uploadFile({ variables: { file } });
+    uploadFile({ variables: { file, size } });
   }
 
   return (
