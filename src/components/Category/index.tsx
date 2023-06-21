@@ -21,14 +21,17 @@ const Categories = (props: CategoriesProps) => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        {categoriesService.map((categoriesService: Category) => (
-          <SwiperSlide key={categoriesService.id}>
-            <Link to={categoriesService.id.toString()}>
-              <h3>{categoriesService.title}</h3>
-              <span>{categoriesService.description}</span>
-            </Link>
-          </SwiperSlide>
-        ))}
+        {categoriesService.map((categoriesService: Category) => {
+          return (
+            <SwiperSlide key={categoriesService.id}>
+              <Link to={categoriesService.id.toString()}>
+                <h3>{categoriesService.title}</h3>
+                <img src={categoriesService.file.fileUrl} />
+                <span>{categoriesService.description}</span>
+              </Link>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </>
   );

@@ -6,6 +6,9 @@ export const GET_CATEGORIES = gql`
       id
       title
       description
+      file {
+        fileUrl
+      }
     }
   }
 `;

@@ -26,12 +26,11 @@ const CategorySettings = () => {
     setIsUploading(true);
     timeoutId.current = setTimeout(reset, 4000);
     const file: File = acceptedFiles[0];
-    const size: number = file.size;
     if (rejectedFiles.length > 0) {
       setErrorMessage(true);
       return;
     }
-    uploadFile({ variables: { file, size } });
+    uploadFile({ variables: { file } });
   }
 
   return (
@@ -50,8 +49,12 @@ const CategorySettings = () => {
           ContentSeparator: {},
         }}
       />
-
-      {/* {error && <ErrorText>{error}</ErrorText>} */}
+      {/* 
+      {error && (
+        <ErrorText>
+          <div>An error occurred!'</div>
+        </ErrorText>
+      )} */}
     </Fragment>
   );
 };
