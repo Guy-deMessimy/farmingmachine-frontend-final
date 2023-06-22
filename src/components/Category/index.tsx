@@ -1,15 +1,13 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { CategoriesProps, Category } from '../../models/CategoriesConfig';
+import Card from '../Card';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-// import required modules
-import { Pagination } from 'swiper';
-
 const Categories = (props: CategoriesProps) => {
-  const { categoriesService } = props;
+  const { categoriesService, isLoading } = props;
   return (
     <>
       <Swiper
@@ -24,11 +22,13 @@ const Categories = (props: CategoriesProps) => {
         {categoriesService.map((categoriesService: Category) => {
           return (
             <SwiperSlide key={categoriesService.id}>
-              <Link to={categoriesService.id.toString()}>
-                <h3>{categoriesService.title}</h3>
-                <img src={categoriesService.file.fileUrl} />
-                <span>{categoriesService.description}</span>
-              </Link>
+              <Card isLoading={isLoading}>
+                <Link to={categoriesService.id.toString()}>
+                  <h3>{categoriesService.title}</h3>
+                  <img src={categoriesService.file.fileUrl} />
+                  <span>{categoriesService.description}</span>
+                </Link>
+              </Card>
             </SwiperSlide>
           );
         })}
