@@ -3,11 +3,14 @@ import { FileUploader } from 'baseui/file-uploader';
 import { useMutation } from '@apollo/client';
 import { ChildrenProps } from '../../../models/ConfigurationConfig';
 import { UPLOAD_FILE } from '../../../GraphQL/FileQuery';
+import { GET_CATEGORIES } from '../../../GraphQL/CategoryQuery';
 
 const CategorySettings = () => {
   const [isUploading, setIsUploading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(false);
-  const [uploadFile, { data, loading, error }] = useMutation(UPLOAD_FILE);
+  const [uploadFile, { data, loading, error }] = useMutation(UPLOAD_FILE, {
+    refetchQueries: [GET_CATEGORIES, 'getPosts'],
+  });
   const timeoutId = useRef<any>();
 
   const ErrorText = ({ children, ...props }: ChildrenProps) => {
