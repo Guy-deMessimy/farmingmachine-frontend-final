@@ -5,13 +5,14 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import * as styled from './styles';
 
 const Categories = (props: CategoriesProps) => {
   const { categoriesService, isLoading } = props;
   return (
     <>
       <Swiper
-        slidesPerView={7}
+        slidesPerView={6}
         spaceBetween={10}
         pagination={{
           clickable: true,
@@ -24,7 +25,7 @@ const Categories = (props: CategoriesProps) => {
             <SwiperSlide key={categoriesService.id}>
               <Card isLoading={isLoading}>
                 <Link to={categoriesService.id.toString()}>
-                  <h3>{categoriesService.title}</h3>
+                  <styled.Page>{categoriesService.title}</styled.Page>
                   <img src={categoriesService.file.fileUrl} />
                   <span>{categoriesService.description}</span>
                 </Link>
