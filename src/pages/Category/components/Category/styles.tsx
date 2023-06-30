@@ -19,6 +19,7 @@ export const CategoryLink = styled(Link)`
 
 export const CategoryImg = styled.img`
   border-radius: 10%;
+  width: 50%;
 `;
 
 // export const FondTitle = styled.div`

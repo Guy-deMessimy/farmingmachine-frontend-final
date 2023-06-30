@@ -1,5 +1,5 @@
-import { CategoriesProps, Category } from '../../models/CategoriesConfig';
-import Card from '../Card';
+import { CategoriesProps, Category } from '../../../../models/CategoriesConfig';
+import Card from '../../../../components/Card';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination } from 'swiper';
 import 'swiper/css';
