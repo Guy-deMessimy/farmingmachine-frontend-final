@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
 import { GET_CATEGORIES } from '../../GraphQL/CategoryQuery';
-import Categories from '../../components/Category';
+import Categories from './components/Category';
 import * as styled from './styles';
 import { TITLE } from '../../utils/text-enum';
 
