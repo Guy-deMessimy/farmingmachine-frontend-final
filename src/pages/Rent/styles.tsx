@@ -11,3 +11,8 @@ export const MachineWrapperForm = styled.div`
   border: 1px solid red;
   height: 10vh;
 `;
+
+export const MachineWrapperGroup = styled.div`
+  border: 1px solid blue;
+  height: 10vh;
+`;
