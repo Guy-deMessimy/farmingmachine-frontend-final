@@ -85,7 +85,6 @@ const MachineForm = () => {
                   separateRangeInputs
                   clearable={true}
                   locale={fr}
-                  innerRef={inputRef}
                 />
               )}
               control={control}

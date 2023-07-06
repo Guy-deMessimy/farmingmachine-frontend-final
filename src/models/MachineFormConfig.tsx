@@ -30,5 +30,4 @@ export interface DatePickerProps {
   separateRangeInputs: boolean;
   clearable: boolean;
   locale: object;
-  innerRef: any;
 }

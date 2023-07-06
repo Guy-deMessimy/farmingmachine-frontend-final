@@ -17,7 +17,6 @@ const DatePickerField = (props: DatePickerProps) => {
     separateRangeInputs,
     clearable,
     locale,
-    innerRef,
   } = props;
 
   return (
@@ -35,16 +34,8 @@ const DatePickerField = (props: DatePickerProps) => {
       separateRangeInputs={separateRangeInputs}
       clearable={clearable}
       locale={locale}
-      mountNode={innerRef}
     />
   );
 };
 
-// export default DatePickerField;
-
-const ForwardRefDatePickerField = React.forwardRef((props: DatePickerProps, ref) => (
-  // @ts-expect-error argument type exception
-  <DatePickerField innerRef={ref} {...props} />
-));
-
-export default ForwardRefDatePickerField;
+export default DatePickerField;
