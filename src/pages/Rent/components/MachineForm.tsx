@@ -1,72 +1,98 @@
 import * as React from 'react';
+import { fr } from 'date-fns/locale';
+import { Calendar } from 'react-feather';
 import { useForm, SubmitHandler, Controller } from 'react-hook-form';
-import * as styled from '../styles';
-import InputField from '../../../components/InputField';
+
+// Components
+import InputField from '../../../components/InputField/index';
 import DatePickerField from '../../../components/DatePicker';
 
-type Inputs = {
-  example: string;
-  exampleRequired: string;
-  departure: string;
-};
+// Typing and utils
+import { Inputs } from '../../../models/MachineFormConfig';
+import { RENT_FORM } from '../../../utils/form-enum';
+
+// Asset and style
+import * as styled from '../styles';
 
 const MachineForm = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    control,
-    formState: { errors },
-  } = useForm<Inputs>();
+  const { handleSubmit, watch, control } = useForm<Inputs>();
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
-  const [value, setValue] = React.useState('');
-  console.log(value);
-  // onChange={(e) => setValue(e.target.value)}
+  const onSubmit: SubmitHandler<Inputs> = (data) => console.log('data', data);
+  const inputRef = React.useRef<any>(null);
 
-  console.log(watch('example')); // watch input value by passing the name of it
+  console.log(watch('departure'));
+  console.log(watch('departure_date'));
+
+  const date = new Date().toLocaleDateString('fr-FR');
+  console.log(typeof date);
+  const startLabel: React.ReactElement = (
+    <div>
+      <span>{RENT_FORM.DATES_DEPARTURE.departureDate}</span>
+      <Calendar />
+    </div>
+  );
+
+  const endLabel: React.ReactElement = (
+    <div>
+      <span>{RENT_FORM.DATES_DEPARTURE.returnDate}</span>
+      <Calendar />
+    </div>
+  );
 
   return (
     /* "handleSubmit" will validate your inputs before invoking "onSubmit" */
     <styled.MachineWrapperForm>
       <h3>Machines</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          {/* register your input into the hook by invoking the "register" function */}
-          <input defaultValue="test" {...register('example')} />
-
-          {/* include validation with required or other standard HTML validation rules */}
-          <input {...register('exampleRequired', { required: true })} />
-          {/* errors will return when field validation fails  */}
-          {errors.exampleRequired && <span>This field is required</span>}
-
+        <styled.MachineWrapperGroup>
           <div>
-            <span>Point de départ</span>
-            {/* <InputField {...register('departure')} /> */}
-            {/* <Controller name={'departure'} render={({ field }) => <InputField {...field}></InputField>} /> */}
-          </div>
-
-          <Controller
-            render={({ field }) => (
-              <InputField
-                {...field}
-                onChange={(e) => field.onChange(e.target.value)}
-                initialValue={field.value}
-              ></InputField>
-            )}
-            control={control}
-            name="departure"
-          />
-
-          {/* <div>
-            <span>Date de départ</span>
-            <DatePickerField />
+            <span>{RENT_FORM.DEPARTURE.title}</span>
+            <Controller
+              render={({ field }) => (
+                <InputField
+                  {...field}
+                  id={RENT_FORM.DEPARTURE.id}
+                  name={RENT_FORM.DEPARTURE.name}
+                  type="text"
+                  initialValue={field.value}
+                  placeholder={RENT_FORM.DEPARTURE.placeholder}
+                  onChange={(e) => field.onChange(e.target.value)}
+                  ariaLabel={RENT_FORM.DEPARTURE.ariaLabel}
+                  clearable
+                  clearOnEscape
+                  innerRef={inputRef}
+                ></InputField>
+              )}
+              control={control}
+              name="departure"
+            />
           </div>
           <div>
-            <span>Date de retour</span>
-            <DatePickerField />
-          </div> */}
-        </div>
+            <Controller
+              render={({ field }) => (
+                <DatePickerField
+                  initialValue={field.value}
+                  initialState={{ value: [] }}
+                  placeholder={date}
+                  formatString="dd/MM/yyyy"
+                  // @ts-expect-error argument type exception
+                  onChange={({ date }) => field.onChange(Array.isArray(date) ? date : [date])}
+                  startDateLabel={startLabel}
+                  endDateLabel={endLabel}
+                  ariaLabel={RENT_FORM.DATES_DEPARTURE.ariaLabel}
+                  highlightedDate={new Date('March 10, 2019')}
+                  range
+                  separateRangeInputs
+                  clearable={true}
+                  locale={fr}
+                  innerRef={inputRef}
+                />
+              )}
+              control={control}
+              name="departure_date"
+            />
+          </div>
+        </styled.MachineWrapperGroup>
         <input type="submit" />
       </form>
     </styled.MachineWrapperForm>
