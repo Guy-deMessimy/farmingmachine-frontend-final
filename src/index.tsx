@@ -5,18 +5,20 @@ import { createUploadLink } from 'apollo-upload-client';
 import { onError } from '@apollo/client/link/error';
 import { Provider as StyletronProvider, DebugEngine } from 'styletron-react';
 import { Client as Styletron } from 'styletron-engine-atomic';
+import { BaseProvider, LightTheme } from 'baseui';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+
 const debug = process.env.NODE_ENV === 'production' ? void 0 : new DebugEngine();
 const engine = new Styletron();
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 const uploadLink = createUploadLink({
-  uri: process.env.REACT_APP_API_URI,
   headers: {
     'Apollo-Require-Preflight': 'true',
   },
+  uri: process.env.REACT_APP_API_URI,
 });
 
 const errorLink = onError(({ graphQLErrors, networkError }) => {
@@ -30,14 +32,16 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link: from([uploadLink, errorLink]),
+  link: from([errorLink, uploadLink]),
 });
 
 root.render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <StyletronProvider value={engine} debug={debug} debugAfterHydration>
-        <App />
+        <BaseProvider theme={LightTheme}>
+          <App />
+        </BaseProvider>
       </StyletronProvider>
     </ApolloProvider>
   </React.StrictMode>,
