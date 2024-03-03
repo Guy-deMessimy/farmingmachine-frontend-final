@@ -11,6 +11,9 @@ import ConfigurationLayout from './pages/Configuration/ConfigurationLayout';
 import ConfigurationPage from './pages/Configuration/Configuration';
 import RentLayout from './pages/Rent/RentLayout';
 import RentPage from './pages/Rent/Rent';
+import MachineLayout from './pages/Machine/machine-layout';
+import MachinePage from './pages/Machine/components/machine-page';
+import * as Styled from './app-styled';
 
 const router = createBrowserRouter([
   {
@@ -19,6 +22,16 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       { index: true, element: <WelcomePage /> },
+      {
+        path: '/machines',
+        element: <MachineLayout />,
+        children: [
+          {
+            index: true,
+            element: <MachinePage />,
+          },
+        ],
+      },
       {
         path: '/category',
         element: <CategoryLayout />,
@@ -72,7 +85,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <Styled.App>
+      <RouterProvider router={router} />
+    </Styled.App>
+  );
 }
 
 export default App;

@@ -8,7 +8,6 @@ import { Client as Styletron } from 'styletron-engine-atomic';
 import { BaseProvider, LightTheme } from 'baseui';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import './index.css';
 
 const debug = process.env.NODE_ENV === 'production' ? void 0 : new DebugEngine();
 const engine = new Styletron();
