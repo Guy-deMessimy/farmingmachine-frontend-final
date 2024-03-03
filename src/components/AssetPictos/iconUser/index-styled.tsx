@@ -7,4 +7,5 @@ export const Svg = styled.svg`
 export const User = styled.div`
   display: flex;
   cursor: pointer;
+  border: none;
 `;

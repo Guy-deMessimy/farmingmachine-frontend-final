@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const Svg = styled.svg`
-  fill: orange; /* Exemple de couleur de remplissage */
-  border: solid 2px black;
+  fill: orange;
 `;
 
 export const Logo = styled.div`
-  /* margin: 0px 0px 6px 0px; */
+  display: flex;
   max-width: 100%;
   cursor: pointer;
+  border: none;
 `;

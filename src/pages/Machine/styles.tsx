@@ -4,7 +4,7 @@ import styled from 'styled-components';
 // import { Link } from 'react-router-dom';
 
 export const ContainerFragment = styled.div`
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   display: flex;
   height: 100%;
   background: #badb42;
@@ -15,17 +15,28 @@ export const MachineWrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr; /* Divise la page en deux colonnes, 1/3 et 2/3 de la largeur */
   height: 100vh; /* 100% de la hauteur de la vue */
-  overflow: scroll;
+  /* overflow: scroll; */
+  /* border: solid 3px green; */
 `;
 
 export const FilteredOptions = styled.div`
   background-color: #f0f0f0; /* Couleur de fond du bloc gauche */
   padding: 20px; /* Ajoutez du rembourrage selon vos besoins */
+  /* border: solid 1px red; */
   color: black;
-  position: sticky;
-  top: 20px; /* Le bloc restera fixe sous le header */
-  z-index: 50; /* Un z-index inférieur à celui du header */
-  height: 100%;
+  /* position: sticky;
+  box-sizing: border-box; */
+  /* top: 20px;  */
+  /* Le bloc restera fixe sous le header */
+  /* z-index: 50;  */
+  /* Un z-index inférieur à celui du header */
+  /* height: 100%; */
+  position: sticky; /* Fixe la colonne de gauche */
+
+  /* bottom: 0;
+  left: 0; */
+  background-color: #f0f0f0; /* Couleur de fond, ajustez selon vos besoins */
+  padding: 20px; /* Espacement interne, ajustez selon vos besoins */
 `;
 
 export const MachineList = styled.div`
@@ -35,6 +46,7 @@ export const MachineList = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* Trois colonnes égales */
   gap: 20px; /* Espacement entre les cartes, ajustez selon vos besoins */
+  overflow: auto;
 `;
 
 export const CardMachine = styled.div`

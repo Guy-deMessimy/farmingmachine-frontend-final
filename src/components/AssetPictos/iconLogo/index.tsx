@@ -1,4 +1,3 @@
-import React from 'react';
 import FarmingMachineLogoSvg from './svg/logo-svg';
 import * as Styled from './index-styled';
 
