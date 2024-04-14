@@ -6,17 +6,20 @@ import { Tab as BaseTab } from '@mui/base/Tab';
 import { Button as BaseButton } from '@mui/base/Button';
 
 export const Header = styled.div`
+  position: sticky;
+  top: 0px;
+  left: 0px;
+  width: 100%;
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 10px;
   background-color: white;
-  outline: none;
-  padding: 1px 1px 1px 1px;
   color: black;
-  position: sticky;
-  top: 0;
+  outline: none;
+  padding: 10px 10px 10px 10px;
   z-index: 100;
+  box-sizing: border-box;
 `;
 
 export const NavLink = styled(BaseNavLink)`
