@@ -33,5 +33,14 @@ module.exports = {
     'baseui/deprecated-theme-api': 'warn',
     'baseui/deprecated-component-api': 'warn',
     'baseui/no-deep-imports': 'warn',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': [
+      'warn',
+      {
+        argsIgnorePattern: '^_',
+        varsIgnorePattern: '^_',
+        caughtErrorsIgnorePattern: '^_',
+      },
+    ],
   },
 };

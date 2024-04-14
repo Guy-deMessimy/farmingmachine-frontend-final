@@ -13,4 +13,5 @@ export const App = styled.div`
   padding: 0;
   margin: 0;
   background-color: #f3f3f3;
+  overflow-x: hidden;
 `;
